@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2016 Zhang Hai <Dreaming.in.Code.ZH@Gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<me.zhanghai.android.douya.profile.ui.ProfileLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.ProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <me.zhanghai.android.douya.profile.ui.ProfileHeaderLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/appbar_elevation">
+
+            <View
+                android:id="@+id/dismiss"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/appBar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="?colorPrimary"
+                android:orientation="vertical"
+                android:theme="?actionBarTheme">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:paddingRight="@dimen/toolbar_overflow_button_right_margin"
+                    app:popupTheme="?actionBarPopupTheme"
+                    app:titleMarginStart="@dimen/toolbar_title_left_margin">
+
+                    <TextView
+                        android:id="@+id/toolbar_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/content_horizontal_margin"
+                        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+                </android.support.v7.widget.Toolbar>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="@dimen/screen_edge_horizontal_margin"
+                    android:paddingRight="@dimen/screen_edge_horizontal_margin"
+                    android:animateLayoutChanges="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <me.zhanghai.android.douya.ui.AutoGoneTextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="36dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textSize="26sp" />
+
+                    <me.zhanghai.android.douya.ui.AutoGoneTextView
+                        android:id="@+id/signature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="24dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    <me.zhanghai.android.douya.ui.JoinedAtLocationAutoGoneTextView
+                        android:id="@+id/joined_at_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="24dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:layout_marginTop="-16dp"
+                    android:paddingLeft="@dimen/screen_edge_horizontal_margin"
+                    android:paddingRight="@dimen/screen_edge_horizontal_margin"
+                    android:animateLayoutChanges="true">
+
+                    <Button
+                        android:id="@+id/follow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|top"
+                        android:drawablePadding="2dp"
+                        android:visibility="gone"
+                        style="?borderlessButtonStyle" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/avatar_container"
+                android:layout_width="@dimen/profile_large_avatar_size"
+                android:layout_height="@dimen/profile_large_avatar_size">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/profile_large_avatar_size"
+                    android:layout_height="@dimen/profile_large_avatar_size"
+                    android:src="@drawable/profile_avatar_icon_white_128dp"
+                    app:civ_border_color="@android:color/white"
+                    app:civ_border_width="3dp"
+                    app:civ_fill_color="?colorPrimaryDark" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="@dimen/profile_large_avatar_size"
+                    android:layout_height="@dimen/profile_large_avatar_size"
+                    android:clickable="true"
+                    android:visibility="gone"
+                    app:civ_border_color="@android:color/white"
+                    app:civ_border_width="3dp" />
+            </FrameLayout>
+        </me.zhanghai.android.douya.profile.ui.ProfileHeaderLayout>
+
+        <me.zhanghai.android.douya.ui.FlexibleSpaceScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/window_background_light"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="-1px"
+                    android:layout_marginRight="-1px"
+                    android:orientation="vertical">
+
+                    <me.zhanghai.android.douya.profile.ui.ProfileBroadcastsLayout
+                        android:id="@+id/broadcasts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/card_horizontal_margin"
+                        android:layout_marginRight="@dimen/card_horizontal_margin"
+                        android:layout_marginTop="@dimen/card_vertical_margin"
+                        android:layout_marginBottom="@dimen/card_vertical_margin"
+                        app:cardCornerRadius="@dimen/card_corner_radius"
+                        app:cardMaxElevation="@dimen/card_elevation" />
+                </LinearLayout>
+
+                <include layout="@layout/appbar_shadow_compat" />
+            </FrameLayout>
+        </me.zhanghai.android.douya.ui.FlexibleSpaceScrollView>
+    </LinearLayout>
+</me.zhanghai.android.douya.profile.ui.ProfileLayout>
